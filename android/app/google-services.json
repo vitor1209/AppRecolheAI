@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "267325762723",
+    "project_id": "recolheapp",
+    "storage_bucket": "recolheapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267325762723:android:cc39471e17ee6023ba2316",
+        "android_client_info": {
+          "package_name": "com.recolh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDgdzaJTHZrnYQdMNk9PrhrkGHvxttBA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
