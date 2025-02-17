@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         secondaryHeaderColor: Colors.amber,
+        fontFamily: 'Poppins',
       ),
       home: InicioPage(),
     );

@@ -145,7 +145,10 @@ Widget Intro2(BuildContext context) {
           padding: EdgeInsets.only(top: screenHeight * 0.05),
           child: ElevatedButton(
             onPressed: () {},
-            child: Text('Saiba mais'),
+            child: Text(
+              'Saiba mais',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.amber,
               foregroundColor: Colors.white,
@@ -297,7 +300,10 @@ Widget Intro5(BuildContext context) {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: Text('Ver o App'),
+            child: Text(
+              'Ver o App',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ],

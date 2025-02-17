@@ -33,7 +33,7 @@ class _HomepageState extends State<Homepage> {
                     'R',
                     style: TextStyle(
                       color: Colors.green,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 28,
                     ),
                   ),
@@ -41,7 +41,7 @@ class _HomepageState extends State<Homepage> {
                     'ecolhe',
                     style: TextStyle(
                       color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 28,
                     ),
                   ),
@@ -49,7 +49,7 @@ class _HomepageState extends State<Homepage> {
                     'AI',
                     style: TextStyle(
                       color: Colors.green,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 28,
                     ),
                   ),
@@ -70,11 +70,11 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Column(
         children: [
-          SizedBox(height: screenHeight * 0.04),
+          SizedBox(height: screenHeight * 0.02),
           Carousel(context),
           Container(
             padding: EdgeInsets.only(
-              top: screenHeight * 0.04,
+              top: screenHeight * 0.03,
               left: screenWidth * 0.125,
               right: screenWidth * 0.125,
             ),
@@ -108,6 +108,71 @@ class _HomepageState extends State<Homepage> {
                   ],
                 ),
               ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: screenHeight * 0.013,
+              left: screenWidth * 0.07,
+              right: screenWidth * 0.07,
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFF006635).withValues(alpha: 0.8),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            width: screenWidth,
+            height: screenHeight * 0.215,
+          ),
+        ],
+      ),
+      bottomNavigationBar: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Color(0xFF074731)),
+            width: screenWidth,
+            height: screenHeight * 0.08,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.08,
+              vertical: screenHeight * 0.035,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.055,
+                vertical: screenHeight * 0.01,
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xFFDCE8E4),
+                border: Border.all(color: Colors.black, width: 1.5),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.home_outlined, size: 30),
+                    color: Colors.lightBlueAccent,
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.location_on_outlined, size: 30),
+                    color: Colors.black,
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.delete_outline, size: 30),
+                    color: Colors.black,
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.person_outline, size: 30),
+                    color: Colors.black,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -176,7 +241,7 @@ Widget BtnPlanos(BuildContext context) {
             style: TextStyle(
               fontSize: 14,
               color: Colors.brown,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -203,8 +268,9 @@ Widget BtnCentroColeta(BuildContext context) {
           Icon(Icons.bookmark_outline, size: 55, color: Colors.black),
           Text(
             'Centros de Coleta',
+            textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 10.5,
               color: Colors.brown,
               fontWeight: FontWeight.w700,
             ),

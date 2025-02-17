@@ -71,6 +71,13 @@ flutter:
     - 'lib/assets/images/banner2.png'
     - 'lib/assets/images/banner3.png'
 
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: lib/assets/fonts/Poppins-SemiBold.ttf
+        - asset: lib/assets/fonts/Poppins-Bold.ttf
+        - asset: lib/assets/fonts/Poppins-Regular.ttf
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
