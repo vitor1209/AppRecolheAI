@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
+import 'package:apprecolheai/pages/mapsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+import 'package:get/get.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -71,7 +73,7 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         children: [
           SizedBox(height: screenHeight * 0.02),
-          Carousel(context),
+          _buildCarousel(screenWidth, screenHeight),
           Container(
             padding: EdgeInsets.only(
               top: screenHeight * 0.03,
@@ -81,48 +83,19 @@ class _HomepageState extends State<Homepage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Center(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      height: screenHeight * 0.30,
-                      width: screenWidth * 0.30,
-                      child: Icon(
-                        Icons.favorite_outline,
-                        size: 70,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                _buildFavorite(screenWidth, screenHeight),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    BtnPlanos(context),
+                    _buildBtnPlanos(screenWidth, screenHeight),
                     SizedBox(height: screenHeight * 0.04),
-                    BtnCentroColeta(context),
+                    _buildBtnCentroColeta(screenWidth, screenHeight),
                   ],
                 ),
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(
-              top: screenHeight * 0.013,
-              left: screenWidth * 0.07,
-              right: screenWidth * 0.07,
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xFF006635).withValues(alpha: 0.8),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            width: screenWidth,
-            height: screenHeight * 0.215,
-          ),
+          _buildGrafico(screenWidth, screenHeight),
         ],
       ),
       bottomNavigationBar: Stack(
@@ -157,7 +130,9 @@ class _HomepageState extends State<Homepage> {
                     color: Colors.lightBlueAccent,
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => Mapspage());
+                    },
                     icon: Icon(Icons.location_on_outlined, size: 30),
                     color: Colors.black,
                   ),
@@ -181,10 +156,7 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-Widget Carousel(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildCarousel(double screenWidth, double screenHeight) {
   return FlutterCarousel(
     options: FlutterCarouselOptions(
       height: screenHeight * 0.18,
@@ -215,10 +187,24 @@ Widget Carousel(BuildContext context) {
   );
 }
 
-Widget BtnPlanos(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
+Widget _buildFavorite(double screenWidth, double screenHeight) {
+  return Center(
+    child: GestureDetector(
+      onTap: () {},
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        height: screenHeight * 0.30,
+        width: screenWidth * 0.30,
+        child: Icon(Icons.favorite_outline, size: 70, color: Colors.black),
+      ),
+    ),
+  );
+}
 
+Widget _buildBtnPlanos(double screenWidth, double screenHeight) {
   return GestureDetector(
     onTap: () {},
     child: Container(
@@ -250,10 +236,7 @@ Widget BtnPlanos(BuildContext context) {
   );
 }
 
-Widget BtnCentroColeta(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildBtnCentroColeta(double screenWidth, double screenHeight) {
   return GestureDetector(
     child: Container(
       decoration: BoxDecoration(
@@ -278,5 +261,21 @@ Widget BtnCentroColeta(BuildContext context) {
         ],
       ),
     ),
+  );
+}
+
+Widget _buildGrafico(double screenWidth, double screenHeight) {
+  return Container(
+    margin: EdgeInsets.only(
+      top: screenHeight * 0.013,
+      left: screenWidth * 0.07,
+      right: screenWidth * 0.07,
+    ),
+    decoration: BoxDecoration(
+      color: Color(0xFF006635).withValues(alpha: 0.8),
+      borderRadius: BorderRadius.circular(24),
+    ),
+    width: screenWidth,
+    height: screenHeight * 0.215,
   );
 }

@@ -25,6 +25,7 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.green,
       body: GestureDetector(
@@ -32,40 +33,23 @@ class _IntroPageState extends State<IntroPage> {
         child: PageView(
           controller: controller,
           children: [
-            Intro1(context),
-            Intro2(context),
-            Intro3(context),
-            Intro4(context),
-            Intro5(context),
+            _buildIntro1(screenWidth, screenHeight),
+            _buildIntro2(screenWidth, screenHeight),
+            _buildIntro3(screenWidth, screenHeight),
+            _buildIntro4(screenWidth, screenHeight),
+            _buildIntro5(screenWidth, screenHeight),
           ],
         ),
       ),
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: screenHeight * 0.07),
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: 5,
-              effect: WormEffect(
-                dotHeight: 10,
-                dotWidth: 10,
-                activeDotColor: Colors.lightBlueAccent,
-                dotColor: Colors.black54,
-              ),
-            ),
-          ),
-        ],
+        children: [_buildIndicator(screenWidth, screenHeight, controller)],
       ),
     );
   }
 }
 
-Widget Intro1(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildIntro1(double screenWidth, double screenHeight) {
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -101,10 +85,7 @@ Widget Intro1(BuildContext context) {
   );
 }
 
-Widget Intro2(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildIntro2(double screenWidth, double screenHeight) {
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +97,7 @@ Widget Intro2(BuildContext context) {
             height: screenHeight * 0.3,
           ),
         ),
-        Container(
+        SizedBox(
           width: screenWidth * 0.85,
           child: Text(
             'Automatização da Separação de Resíduos',
@@ -145,16 +126,16 @@ Widget Intro2(BuildContext context) {
           padding: EdgeInsets.only(top: screenHeight * 0.05),
           child: ElevatedButton(
             onPressed: () {},
-            child: Text(
-              'Saiba mais',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.amber,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
+            ),
+            child: Text(
+              'Saiba mais',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -163,10 +144,7 @@ Widget Intro2(BuildContext context) {
   );
 }
 
-Widget Intro3(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildIntro3(double screenWidth, double screenHeight) {
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -175,7 +153,7 @@ Widget Intro3(BuildContext context) {
           './lib/assets/images/logoRecolheai.png',
           height: screenHeight * 0.3,
         ),
-        Container(
+        SizedBox(
           width: screenWidth * 0.9,
           child: Text(
             'Integração com IoT',
@@ -205,10 +183,7 @@ Widget Intro3(BuildContext context) {
   );
 }
 
-Widget Intro4(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildIntro4(double screenWidth, double screenHeight) {
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -217,7 +192,7 @@ Widget Intro4(BuildContext context) {
           './lib/assets/images/logoRecolheai.png',
           height: screenHeight * 0.3,
         ),
-        Container(
+        SizedBox(
           width: screenWidth * 0.9,
           child: Text(
             'Reciclagem Sustentável',
@@ -247,10 +222,7 @@ Widget Intro4(BuildContext context) {
   );
 }
 
-Widget Intro5(BuildContext context) {
-  double screenHeight = MediaQuery.of(context).size.height;
-  double screenWidth = MediaQuery.of(context).size.width;
-
+Widget _buildIntro5(double screenWidth, double screenHeight) {
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -307,6 +279,26 @@ Widget Intro5(BuildContext context) {
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget _buildIndicator(
+  double screenWidth,
+  double screenHeight,
+  PageController controller,
+) {
+  return Padding(
+    padding: EdgeInsets.only(bottom: screenHeight * 0.07),
+    child: SmoothPageIndicator(
+      controller: controller,
+      count: 5,
+      effect: WormEffect(
+        dotHeight: 10,
+        dotWidth: 10,
+        activeDotColor: Colors.lightBlueAccent,
+        dotColor: Colors.black54,
+      ),
     ),
   );
 }

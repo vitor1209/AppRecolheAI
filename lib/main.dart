@@ -2,7 +2,7 @@ import 'package:apprecolheai/pages/inicioPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-main() {
+main() async {
   runApp(MyApp());
 }
 
