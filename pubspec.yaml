@@ -39,8 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_carousel_widget: ^3.1.0
   crystal_navigation_bar: ^1.0.2
-  iconly: ^1.0.1
-  rive: ^0.13.20
+  flutter_map: ^8.0.0
+  latlong2: ^0.9.1
 
 
 dev_dependencies:
@@ -70,6 +70,7 @@ flutter:
     - 'lib/assets/images/banner1.png'
     - 'lib/assets/images/banner2.png'
     - 'lib/assets/images/banner3.png'
+    - 'lib/assets/images/LixeiraFalse.png'
 
   fonts:
     - family: Poppins
